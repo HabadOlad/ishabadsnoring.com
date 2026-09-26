@@ -25,13 +25,10 @@
   </head>
   <body class="{% block body_class %}{% endblock %}">
     <nav class="navigation">
-      <a href="{{ url_for('index') }}" id="index" class="index"></a>
-      <a href="{{ url_for('chart_page') }}" id="chart" class="chart"></a>
-      <a href="{{ url_for('tables_page') }}" id="tables" class="tables"></a>
-      <a
-        href="{{ url_for('information_page') }}"
-        id="information"
-        class="information"></a>
+      <a href="{{ url_for('index') }}">Homepage</a>
+      <a href="{{ url_for('chart_page') }}">Charts</a>
+      <a href="{{ url_for('tables_page') }}">Tables</a>
+      <a href="{{ url_for('information_page') }}">Information</a>
     </nav>
 
     <main>{% block mainBlock %}{% endblock %}</main>

@@ -131,3 +131,8 @@ body.information {
   color: var(--color-text-link-hover);
   text-decoration: underline;
 }
+
+.habadspic {
+  width: 200px;
+  border-radius: 10px;
+}
