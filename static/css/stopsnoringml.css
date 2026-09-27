@@ -1,38 +1,40 @@
-/* 1. Regular Variant */
+/* 1. Regular / Variable Weight Variant */
 @font-face {
-  font-family: "Instrument Serif";
-  font-weight: 400;
+  font-family: "Playfair Display";
+  font-weight: 400 900; /* Playfair Display variable weight range */
   font-style: normal;
-  src: url("../css/font/InstrumentSerif-Regular.ttf") format("truetype");
+  src: url("../css/font/PlayfairDisplay-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
-/* 2. Italic Variant */
+/* 2. Italic / Variable Weight Variant */
 @font-face {
-  font-family: "Instrument Serif";
-  font-weight: 400;
+  font-family: "Playfair Display";
+  font-weight: 400 900; /* Playfair Display variable weight range */
   font-style: italic;
-  src: url("../css/font/InstrumentSerif-Italic.ttf") format("truetype");
+  src: url("../css/font/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 /* --- Design Tokens / Root Variables --- */
 :root {
   /* Typography */
-  --font-primary: "Instrument Serif", Georgia, Cambria, "Times New Roman", Times,
-    serif;
-
+  --font-primary: "Playfair Display", serif;
+  --font-fallback: system-ui, -apple-system, sans-serif;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
-  --font-size-p: 1.2rem;
+  --font-size-p: 26px;
   --font-size-nav: 30px;
-  --font-size-h1: 3rem;
+  --font-size-h1: 40px;
 
   /* Colors - Text */
   --color-text-main: #080808;
   --color-text-muted: #94a3b8;
   --color-text-link: #3730a3;
   --color-text-link-hover: #1e1b4b;
+  --button-text-hover: #fcfde2;
 
   /* Colors - Backgrounds */
   --bg-for-all: #e1e0fd; /* dark dark blue */
@@ -52,7 +54,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  padding: var(--body-padding);
+  padding: 0;
   margin: 0;
   text-align: center;
   color: var(--color-text-main);
@@ -107,47 +109,175 @@ body.information {
 }
 
 .navigation {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  margin-top: 20px;
-  font-weight: var(--font-weight-bold);
-  gap: 20px;
   display: flex;
-  justify-content: flex-start; /* Pushes logo left, links right */
-  align-items: center; /* Centers everything vertically */
-  border-bottom: 2px solid var(--color-text-main);
+  justify-content: space-between;
+  align-items: center; /* Ensures perfect vertical centering */
+  padding: 12px 48px; /* Reduced top/bottom padding from 20px to 12px */
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  border-bottom: 1px solid rgba(8, 8, 8, 0.12);
 }
 
-/* Reset default paragraph spacing */
 #toplogo {
   margin: 0;
-  font-size: 30px;
+  font-size: 26px; /* Scaled to match the text links cleanly */
+  font-weight: 800;
+  color: #2e2b58;
+  line-height: 1;
 }
 
-/* Style the links container if needed */
 .nav-links {
   display: flex;
+  gap: 12px;
 }
 
 .navigation a {
-  background-color: transparent;
+  font-family: var(--font-primary);
+  font-size: 22px; /* Slightly scaled down from 30px for better navbar proportions */
+  font-weight: 600;
+  color: var(--color-text-main);
   text-decoration: none;
-  padding: 10px 20px;
-  color: var(--color-text-link);
-  font-size: var(--font-size-nav);
-  font-style: normal;
-  transition: color 0.3s ease, font-style 0.2s ease;
+  padding: 4px 12px; /* Reduced top/bottom padding from 8px to 4px */
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-.navigation a:hover,
-.navigation a:active {
-  font-style: italic;
-  color: var(--color-text-link-hover);
-  text-decoration: underline;
+.navigation a:hover {
+  background-color: var(--button-text-hover);
+  color: #222;
+  text-decoration: none;
 }
 
 .habadspic {
   width: 200px;
   border-radius: 10px;
+}
+
+button {
+  all: unset;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  height: 3.5rem;
+  align-items: center;
+  border-radius: 9999px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-family: Segoe UI;
+  font-size: 1.2rem;
+  font-weight: 640;
+  color: #fafaf6;
+  letter-spacing: -0.06em;
+}
+
+.button-item {
+  background-color: transparent;
+  color: #1d1d1f;
+}
+
+.button-item .button-bg {
+  border-color: rgba(255, 208, 116);
+  background-color: rgba(255, 208, 116);
+}
+
+.button-inner,
+.button-inner-hover,
+.button-inner-static {
+  pointer-events: none;
+  display: block;
+}
+
+.button-inner {
+  position: relative;
+}
+
+.button-inner-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(70%);
+}
+
+.button-bg {
+  overflow: hidden;
+  border-radius: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-bg,
+.button-bg-layer,
+.button-bg-layers {
+  display: block;
+}
+
+.button-bg-layers {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -60%;
+  aspect-ratio: 1 / 1;
+  width: max(200%, 10rem);
+}
+
+.button-bg-layer {
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+}
+
+.button-bg-layer.-purple {
+  background-color: rgba(163, 116, 255);
+}
+
+.button-bg-layer.-turquoise {
+  background-color: rgba(23, 241, 209);
+}
+
+.button-bg-layer.-yellow {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 208, 116, var(--tw-bg-opacity));
+}
+
+.button:hover .button-inner-static {
+  opacity: 0;
+  transform: translateY(-70%);
+  transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s linear;
+}
+
+.button:hover .button-inner-hover {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover .button-bg-layer {
+  transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s linear;
+}
+
+.button:hover .button-bg-layer-1 {
+  transform: scale(1);
+}
+
+.button:hover .button-bg-layer-2 {
+  transition-delay: 0.1s;
+  transform: scale(1);
+}
+
+.button:hover .button-bg-layer-3 {
+  transition-delay: 0.2s;
+  transform: scale(1);
 }
