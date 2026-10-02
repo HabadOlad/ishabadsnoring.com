@@ -1,27 +1,43 @@
-/* 1. Regular / Variable Weight Variant */
 @font-face {
-  font-family: "Playfair Display";
-  font-weight: 400 900; /* Playfair Display variable weight range */
+  font-family: "Palatino Linotype";
   font-style: normal;
-  src: url("../css/font/PlayfairDisplay-VariableFont_wght.ttf")
-    format("truetype");
+  font-weight: 400;
   font-display: swap;
+  src: url("font/PalatinoLinotype-Regular.woff2") format("woff2");
 }
 
-/* 2. Italic / Variable Weight Variant */
 @font-face {
-  font-family: "Playfair Display";
-  font-weight: 400 900; /* Playfair Display variable weight range */
+  font-family: "Palatino Linotype";
   font-style: italic;
-  src: url("../css/font/PlayfairDisplay-Italic-VariableFont_wght.ttf")
-    format("truetype");
+  font-weight: 400;
   font-display: swap;
+  src: url("font/PalatinoLinotype-Regular-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Palatino Linotype";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("font/PalatinoLinotype-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Palatino Linotype";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("font/PalatinoLinotype-Bold-Italic.woff2") format("woff2");
+}
+
+.font-palatino-linotype {
+  font-family: var(--font-primary), var(--font-fallback);
 }
 
 /* --- Design Tokens / Root Variables --- */
 :root {
   /* Typography */
-  --font-primary: "Playfair Display", serif;
+  --font-primary: "Palatino Linotype", serif;
   --font-fallback: system-ui, -apple-system, sans-serif;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -34,10 +50,10 @@
   --color-text-muted: #94a3b8;
   --color-text-link: #3730a3;
   --color-text-link-hover: #1e1b4b;
-  --button-text-hover: #fcfde2;
+  --color-text-button-hover: #fcfde2;
 
   /* Colors - Backgrounds */
-  --bg-for-all: #e1e0fd; /* dark dark blue */
+  --bg-for-all: #e1e0fd; /* light lavender/periwinkle */
 
   /* Spacing */
   --body-padding: 7.5px;
@@ -143,7 +159,7 @@ body.information {
 }
 
 .navigation a:hover {
-  background-color: var(--button-text-hover);
+  background-color: var(--color-text-button-hover);
   color: #222;
   text-decoration: none;
 }
