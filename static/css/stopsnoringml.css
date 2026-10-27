@@ -1,43 +1,7 @@
-@font-face {
-  font-family: "Palatino Linotype";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("font/PalatinoLinotype-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Palatino Linotype";
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("font/PalatinoLinotype-Regular-Italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Palatino Linotype";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("font/PalatinoLinotype-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Palatino Linotype";
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: url("font/PalatinoLinotype-Bold-Italic.woff2") format("woff2");
-}
-
-.font-palatino-linotype {
-  font-family: var(--font-primary), var(--font-fallback);
-}
-
-/* --- Design Tokens / Root Variables --- */
 :root {
   /* Typography */
-  --font-primary: "Palatino Linotype", serif;
+  --font-primary: Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif",
+    "Sitka Small", serif;
   --font-fallback: system-ui, -apple-system, sans-serif;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -59,6 +23,10 @@
   --body-padding: 7.5px;
 }
 
+/* Utility Class (for specific elements if needed) */
+.font-slab-serif {
+  font-family: var(--font-primary);
+}
 /* --- Base & Reset Styles --- */
 html {
   scroll-behavior: smooth;
@@ -70,11 +38,16 @@ html {
 
 body {
   font-family: var(--font-primary);
-  padding: 0;
+  padding: var(--body-padding);
   margin: 0;
   text-align: center;
   color: var(--color-text-main);
+  background-color: var(--bg-for-all);
 }
+
+font-family: var(--font-primary);
+color: var(--color-text-main);
+background-color: var(--bg-for-all);
 
 /* --- Home Page Styles --- */
 body.index {
