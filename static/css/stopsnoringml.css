@@ -45,10 +45,6 @@ body {
   background-color: var(--bg-for-all);
 }
 
-font-family: var(--font-primary);
-color: var(--color-text-main);
-background-color: var(--bg-for-all);
-
 /* --- Home Page Styles --- */
 body.index {
   background-color: var(--bg-for-all);
