@@ -15,6 +15,47 @@
   --color-text-link: #3730a3;
   --color-text-link-hover: #1e1b4b;
   --color-text-button-hover: #fcfde2;
+    --ink: #ece8ff;
+    --ink-rgb: 236 232 255;
+    --paper: #1c1836;
+    --lavender: #110e22;
+    --surface: #28224a;
+    --menu: #19152f;
+    --hover: var(--surface);
+    --violet: #9887ff;
+    --pink: #ff5cab;
+    --pink-text: var(--pink);
+    --focus: var(--pink);
+    --mint: #8cf0c6;
+    --sky: #6cc7ff;
+    --sky-wash: #10304a;
+    --line: rgb(var(--ink-rgb) / .13);
+    --edge: #7a70b8;
+    --offset: #6a55f2;
+    --drop: .375rem .375rem 0 #03020a99;
+    --scrim: #05030eb8;
+    --on-ink: #110e22;
+    --on-fill: #140c24;
+    --on-accent: #140c24;
+    --action: var(--pink);
+    --action-hover: #ff85c1;
+    --on-action: #1d0916;
+    --danger: #ff7089;
+    --danger-wash: #3f1324;
+    --success: #52e2a6;
+    --warn: #ffc75a;
+    --gold: #ffd84a;
+    --gold-bright: #ffc21a;
+    --gold-edge: #e8b923;
+    --gold-wash: #33290a;
+    --admin: #ff9442;
+    --on-admin: #1f0e02;
+    --on-air: #ff3b47;
+    --mint-wash: #123f32;
+    --stage: #0a0817;
+    --on-stage: #f3f0ff;
+    --raw-jev-bg: #0b0919;
+    --raw-jev-well: #06050f
 
   /* Colors - Backgrounds */
   --bg-for-all: #e1e0fd; /* light lavender/periwinkle */
@@ -42,7 +83,7 @@ body {
   margin: 0;
   text-align: center;
   color: var(--color-text-main);
-  background-color: var(--bg-for-all);
+  background-color: var(--violet);
 }
 
 /* --- Home Page Styles --- */
